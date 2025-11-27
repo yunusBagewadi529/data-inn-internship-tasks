@@ -9,7 +9,7 @@ public class DuplicateCityRemoval {
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < 5; i++) {
-            System.out.print("Enter Your City Name: ");
+            System.out.print("Enter ["+  (i + 1) + "] City Name: ");
             String city = sc.nextLine();
 
             cities.add(city);

@@ -32,7 +32,7 @@ class Student {
 
     @Override
     public boolean equals(Object obj) {
-        Student s = (Student) obj;
+        Student s = (Student) obj; // Type casting:
         return (Objects.equals(id, s.id) && Objects.equals(name, s.name) && Objects.equals(course, s.course));
     }
 
