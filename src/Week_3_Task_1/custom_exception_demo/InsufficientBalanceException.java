@@ -9,8 +9,8 @@ public class InsufficientBalanceException extends Exception {
 }
 
 class DemoBankAccount {
+    public static double balance = 10000;
     public static void withdraw(double amount) throws InsufficientBalanceException {
-        double balance = 10000;
         if (balance < amount) {
             throw new InsufficientBalanceException("Insufficient Funds! Balance Amount: [₹" + balance + "], Withdrawing Amount: [₹" + amount + "]\n");
         } else {

@@ -10,8 +10,9 @@ public class InvalidAgeException extends Exception{
 }
 
 class RatedRMovie {
+    public static Integer ageLimit = 18;
     public static void checkAge(int age) throws InvalidAgeException {
-        if (age < 18) {
+        if (age < ageLimit) { // No hardcoded comparing values, store it in a variable
             throw new InvalidAgeException("18 And Above Are Permitted To The Movie, You Are A Minor, Aged: [" + age + "]\n");
         }
         System.out.println("\nValid Age [18 - 18+], Access Granted.\n");
