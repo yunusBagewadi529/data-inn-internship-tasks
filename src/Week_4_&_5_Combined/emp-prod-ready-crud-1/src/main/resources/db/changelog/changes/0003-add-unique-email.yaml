@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0003-add-unique-email
+      author: emp-crud
+      preConditions:
+          - onFail: MARK_RAN
+          - sqlCheck:
+              expectedResult: "0"
+              sql: "SELECT COUNT(*) FROM pg_constraint WHERE conname = 'uq_employees_email';"
+      changes:
+        - addUniqueConstraint:
+            tableName: employees
+            columnNames: email
+            constraintName: uq_employees_email
+      rollback:
+        - dropUniqueConstraint:
+            tableName: employees
+            constraintName: uq_employees_email
+
+  # SELECT COUNT(*) FROM pg_constraint WHERE conname = 'uq_employees_email';
