@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0002-add-index-department
+      author: emp-crud
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            indexExists:
+              indexName: idx_employees_department
+              tableName: employees
+      changes:
+        - createIndex:
+            tableName: employees
+            indexName: idx_employees_department
+            columns:
+              - column:
+                  name: department
+      rollback:
+        - dropIndex:
+            indexName: idx_employees_department
+            tableName: employees
+
+#  SELECT * FROM DATABASECHANGELOG;
+#  SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'employees';
